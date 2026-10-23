@@ -1,0 +1,18 @@
+export interface Post {
+  slug: string;
+  title: string;
+  category: string;
+  date: string;
+  read: string;
+  excerpt: string;
+  body: string[];
+}
+
+export const posts: Post[] = [
+  { slug: 'autonomous-marketing-playbook', title: 'The autonomous marketing playbook', category: 'Strategy', date: 'Oct 8, 2026', read: '6 min read', excerpt: 'How leading teams move from manual campaign management to agents that plan, launch, and learn.', body: ['Most marketing teams still run campaigns the same way they did a decade ago: a plan, a launch, a weekly report, and a lot of copying between tabs. Autonomous marketing replaces that rhythm with a loop that never stops.', 'Start small. Pick one channel, put an agent in suggest mode, and compare its recommendations with what your team would have done. Once the suggestions earn trust, move the safest actions to auto and keep humans on the big decisions.'] },
+  { slug: 'why-creative-fatigue-hurts', title: 'Why creative fatigue quietly drains your ad budget', category: 'Analytics', date: 'Sep 30, 2026', read: '4 min read', excerpt: 'Performance rarely falls off a cliff. It slides, and most teams notice weeks too late.', body: ['Creative fatigue shows up as a slow rise in cost per result. Because the change is gradual, weekly reviews often miss it until budget has already been wasted.', 'The fix is monitoring at the creative level every day, comparing each asset with its own baseline, and rotating fresh variations before the audience tunes out.'] },
+  { slug: 'seo-in-the-age-of-ai-search', title: 'SEO in the age of AI search', category: 'SEO', date: 'Sep 21, 2026', read: '7 min read', excerpt: 'Answer engines change what visibility means. Here is what still matters and what to rethink.', body: ['Search is no longer a list of ten blue links. People get summarized answers, and the sources behind them matter more than rankings alone.', 'Focus on clear, well-structured pages that answer real questions, keep technical health clean, and measure brand mentions alongside clicks.'] },
+  { slug: 'approval-workflows-that-scale', title: 'Approval workflows that scale with your team', category: 'Operations', date: 'Sep 12, 2026', read: '5 min read', excerpt: 'Speed and control are not opposites when approvals are designed around risk.', body: ['Not every change deserves the same scrutiny. A budget shift of one percent and a new homepage headline carry very different risk.', 'Tier your approvals by impact. Let low-risk actions run automatically, route medium-risk ones to a single reviewer, and reserve full sign-off for brand-defining moves.'] },
+  { slug: 'measuring-what-matters', title: 'Measuring what matters beyond last click', category: 'Analytics', date: 'Aug 28, 2026', read: '6 min read', excerpt: 'Last-click attribution rewards the channel at the end of the journey, not the one that started it.', body: ['Last-click is easy to measure and easy to misread. It undervalues the content, social, and search work that builds demand long before a purchase.', 'Combine multi-touch views with incrementality tests so your budget follows the channels that actually change outcomes.'] },
+  { slug: 'brand-voice-for-ai-agents', title: 'Teaching AI agents your brand voice', category: 'Brand', date: 'Aug 14, 2026', read: '5 min read', excerpt: 'A style guide is a good start. Real examples and guardrails are what make output sound like you.', body: ['Agents write the way you show them to write. Give them your best-performing copy, the phrases you never use, and examples of tone shifts by channel.', 'Then add guardrails: required disclosures, banned claims, and an approval step for anything new. Review a sample every week and feed corrections back in.'] },
+];
