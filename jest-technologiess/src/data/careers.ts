@@ -1,15 +1,15 @@
 export const perks = [
-  { title: 'Remote-first', text: 'Work from anywhere with overlap hours that respect your life.' },
-  { title: 'Learning budget', text: 'A yearly budget for courses, books, and conferences.' },
-  { title: 'Fair equity', text: 'Meaningful ownership for every full-time team member.' },
-  { title: 'Time to recover', text: 'Generous leave and a company-wide winter break.' },
+  { title: 'Remote-friendly', text: 'Work from home or one of our hubs, with overlap hours that respect your life.' },
+  { title: 'Learning budget', text: 'A yearly budget for courses, books, certifications, and conferences.' },
+  { title: 'Ownership', text: 'Meaningful responsibility early, with senior mentors close by.' },
+  { title: 'Sustainable pace', text: 'Honest scope and calm releases mean evenings and weekends stay yours.' },
 ];
 
 export const roles = [
-  { title: 'Senior Machine Learning Engineer', team: 'Agents', location: 'Remote (Americas, Europe)', type: 'Full-time' },
-  { title: 'Product Designer', team: 'Design', location: 'Remote (Global)', type: 'Full-time' },
-  { title: 'Frontend Engineer', team: 'Platform', location: 'Remote (Europe, India)', type: 'Full-time' },
-  { title: 'Customer Success Manager', team: 'Customer', location: 'Remote (US)', type: 'Full-time' },
-  { title: 'Content Marketing Lead', team: 'Marketing', location: 'Remote (Global)', type: 'Full-time' },
-  { title: 'Solutions Engineer', team: 'Sales', location: 'Remote (Europe)', type: 'Full-time' },
+  { title: 'Senior Full-Stack Engineer', team: 'Engineering', location: 'Remote / Hybrid', type: 'Full-time' },
+  { title: 'Mobile Engineer (React Native)', team: 'Engineering', location: 'Remote / Hybrid', type: 'Full-time' },
+  { title: 'DevOps Engineer', team: 'Cloud', location: 'Remote / Hybrid', type: 'Full-time' },
+  { title: 'UI/UX Designer', team: 'Design', location: 'Remote / Hybrid', type: 'Full-time' },
+  { title: 'QA Automation Engineer', team: 'Quality', location: 'Remote / Hybrid', type: 'Full-time' },
+  { title: 'Business Analyst', team: 'Delivery', location: 'Remote / Hybrid', type: 'Full-time' },
 ];

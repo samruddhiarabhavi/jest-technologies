@@ -1,12 +1,13 @@
 # Jest Technologies
 
-Original AI marketing-platform site. React + TypeScript + Vite + Tailwind, Framer Motion, GSAP ScrollTrigger, React Router.
+Engineering-led software company website. React + TypeScript + Vite + Tailwind, Framer Motion, GSAP ScrollTrigger, React Router.
 
     npm install
     npm run dev        # http://localhost:5173
-    npm test           # Jest + React Testing Library
+    npm test
     npm run typecheck
     npm run build
 
-Routes: / /platform /solutions /industries /contact /about /careers /blog /blog/:slug /case-studies /docs /privacy /terms (+ 404).
-Privacy and Terms are placeholder copy and need legal review before launch.
+Routes: / /about /services /projects /blog /blog/:slug /careers /contact (+ 404).
+Edit company details in src/data/company.ts and content in src/data/*.ts.
+Statistics, projects, clients, people, address, phone, and email are placeholders.

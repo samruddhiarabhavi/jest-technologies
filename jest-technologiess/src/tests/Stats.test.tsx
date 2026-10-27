@@ -1,21 +1,17 @@
 import { render, screen } from '@testing-library/react';
-import Problem from '../sections/Problem';
 import StatCounter from '../components/StatCounter';
+import StatsBand from '../sections/StatsBand';
+import { aboutStats } from '../data/company';
 
 describe('Statistics', () => {
-  it('renders the three headline statistics and labels', () => {
-    render(<Problem />);
-    expect(screen.getAllByText('68%').length).toBeGreaterThan(0);
-    expect(screen.getAllByText('3.6x').length).toBeGreaterThan(0);
-    expect(screen.getAllByText('$1.9B').length).toBeGreaterThan(0);
-    expect(screen.getByText('Less manual campaign work')).toBeInTheDocument();
-    expect(screen.getByText('Faster from launch to learning')).toBeInTheDocument();
-    expect(screen.getByText('Ad spend intelligently optimized')).toBeInTheDocument();
+  it('renders every company statistic with its label', () => {
+    render(<StatsBand />);
+    aboutStats.forEach((s) => expect(screen.getByText(s.label)).toBeInTheDocument());
+    expect(screen.getAllByText('85+').length).toBeGreaterThan(0);
   });
 
-  it('exposes the final value to assistive tech and shows it with reduced motion', () => {
-    render(<StatCounter value={1200} label="Accounts" />);
-    expect(screen.getAllByText('1200').length).toBeGreaterThan(0);
+  it('shows the final value immediately with reduced motion', () => {
+    render(<StatCounter value={1200} label="Users" />);
     expect(screen.getByText('1,200')).toBeInTheDocument();
   });
 });

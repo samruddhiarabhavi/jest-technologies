@@ -19,20 +19,24 @@ describe('Navbar', () => {
   it('renders the logo and primary links', () => {
     setup();
     const nav = within(screen.getByRole('navigation', { name: 'Primary' }));
-    ['Solutions', 'Platform', 'Industries', 'Resources'].forEach((l) => expect(nav.getByRole('link', { name: l })).toBeInTheDocument());
+    ['Home', 'About', 'Services', 'Projects', 'Insights', 'Careers', 'Contact'].forEach((l) => expect(nav.getByRole('link', { name: l })).toBeInTheDocument());
     expect(screen.getByRole('link', { name: /jest technologies home/i })).toBeInTheDocument();
   });
 
-  it('shows Log in and Get Started', () => {
+  it('shows the Request a Proposal call to action', () => {
     setup();
-    expect(screen.getByRole('link', { name: 'Log in' })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /get started/i })).toHaveAttribute('href', '/contact');
+    expect(screen.getByRole('link', { name: /request a proposal/i })).toHaveAttribute('href', '/contact');
+  });
+
+  it('marks the current page', () => {
+    setup();
+    expect(within(screen.getByRole('navigation', { name: 'Primary' })).getByRole('link', { name: 'Home' })).toHaveAttribute('aria-current', 'page');
   });
 
   it('navigates when a link is clicked', async () => {
     setup();
-    await userEvent.click(within(screen.getByRole('navigation', { name: 'Primary' })).getByRole('link', { name: 'Platform' }));
-    expect(screen.getByTestId('where')).toHaveTextContent('/platform');
+    await userEvent.click(within(screen.getByRole('navigation', { name: 'Primary' })).getByRole('link', { name: 'Services' }));
+    expect(screen.getByTestId('where')).toHaveTextContent('/services');
   });
 
   it('opens and closes the mobile menu', async () => {

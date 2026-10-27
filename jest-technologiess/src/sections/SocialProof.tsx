@@ -1,11 +1,11 @@
-const logos = ['LUMEN', 'ORBIT', 'HALO', 'KINDRED', 'MERIDIAN', 'SPARKLINE'];
+const logos = ['NORTHWIND', 'HELIX', 'CASCADE', 'PARALLAX', 'VANTAGE', 'OAKRIDGE'];
 
 export default function SocialProof() {
   const row = [...logos, ...logos];
   return (
     <section aria-labelledby="proof-title" className="border-y border-line py-16">
       <h2 id="proof-title" className="wrap text-center text-sm text-mute">
-        Built for teams that launch campaigns.
+        Trusted by teams that ship.
       </h2>
       <div className="marquee mt-10 overflow-hidden [mask-image:linear-gradient(90deg,transparent,#000_15%,#000_85%,transparent)]">
         <ul className="marquee-track flex w-max items-center" aria-label="Customers">

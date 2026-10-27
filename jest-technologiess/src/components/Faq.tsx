@@ -4,10 +4,10 @@ import { Plus } from 'lucide-react';
 import { ease } from '../animations/fade';
 
 export const faqItems = [
-  { q: 'How long does it take to go live?', a: 'Most teams launch their first automated campaign within two weeks. We connect your ad and analytics accounts read-only first, then enable actions one channel at a time.' },
-  { q: 'Can we approve what the agents publish?', a: 'Yes. Every action can run in suggest, approve, or auto mode, and your brand rules always apply.' },
-  { q: 'Does Jest Technologies train models on our data?', a: 'No. Your audience and performance data stays in your isolated environment and is never used to train shared models.' },
-  { q: 'Which tools do you integrate with?', a: 'Ad platforms, analytics, CRM, email, ecommerce, and chat tools, including Google Ads, Meta, HubSpot, Shopify, and Slack.' },
+  { q: 'How soon can a project start?', a: 'Most projects begin within two to three weeks of signing. A short discovery phase comes first so the plan is based on facts, not guesses.' },
+  { q: 'How do you price projects?', a: 'We offer fixed-scope pricing for well-defined work and monthly team pricing for ongoing products. Every proposal lists its assumptions and risks.' },
+  { q: 'Who owns the code?', a: 'You do. All source code and documentation are yours at handover, and we work in repositories you control.' },
+  { q: 'Do you provide support after launch?', a: 'Yes. We offer monitored support plans with agreed response times, plus a team to keep improving the product.' },
 ];
 
 export default function Faq() {

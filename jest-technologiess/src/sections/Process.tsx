@@ -1,19 +1,19 @@
 import { useEffect, useRef, useState } from 'react';
 import { useReducedMotion } from 'framer-motion';
-import { CheckCircle2, Cpu, Database, GitBranch, UserCheck, Zap, type LucideIcon } from 'lucide-react';
+import { Code2, LifeBuoy, PenTool, Rocket, Search, ShieldCheck, type LucideIcon } from 'lucide-react';
 import Reveal from '../components/Reveal';
 import { scrubProgress } from '../animations/scroll';
 
 const stages: { name: string; text: string; icon: LucideIcon }[] = [
-  { name: 'Data', text: 'Ad platforms, CRM, and web analytics flow in.', icon: Database },
-  { name: 'AI Analysis', text: 'Agents segment, score, and spot patterns.', icon: Cpu },
-  { name: 'Decision', text: 'Goals and brand rules pick the path.', icon: GitBranch },
-  { name: 'Automation', text: 'Approved changes go live on their own.', icon: Zap },
-  { name: 'Human Review', text: 'Strategists approve the big moves.', icon: UserCheck },
-  { name: 'Completed', text: 'Logged, measured, and learning.', icon: CheckCircle2 },
+  { name: 'Discover', text: 'We learn your goals, users, and constraints.', icon: Search },
+  { name: 'Design', text: 'Flows and prototypes you can test early.', icon: PenTool },
+  { name: 'Build', text: 'Senior engineers ship in small, reviewed steps.', icon: Code2 },
+  { name: 'Test', text: 'Automated and manual QA before anything goes live.', icon: ShieldCheck },
+  { name: 'Launch', text: 'Calm releases with monitoring from minute one.', icon: Rocket },
+  { name: 'Support', text: 'We stay on to maintain, measure, and improve.', icon: LifeBuoy },
 ];
 
-export default function Workflow() {
+export default function Process() {
   const reduce = useReducedMotion();
   const wrapRef = useRef<HTMLDivElement>(null);
   const lineRef = useRef<HTMLDivElement>(null);
@@ -36,11 +36,11 @@ export default function Workflow() {
   const track = 'absolute left-7 top-7 bottom-7 w-px md:bottom-auto md:left-[8.333%] md:right-[8.333%] md:h-px md:w-auto';
 
   return (
-    <section aria-labelledby="workflow-title" className="section border-y border-line bg-coal">
+    <section aria-labelledby="process-title" className="section border-y border-line bg-coal">
       <div className="wrap">
         <Reveal>
-          <h2 id="workflow-title" className="display max-w-3xl text-[clamp(2.25rem,5vw,4.5rem)] leading-[1.02]">
-            From scattered data to a closed growth loop.
+          <h2 id="process-title" className="display max-w-3xl text-[clamp(2.25rem,5vw,4.5rem)] leading-[1.02]">
+            A delivery process you can see.
           </h2>
         </Reveal>
         <div ref={wrapRef} className="relative mt-20">

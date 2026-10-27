@@ -6,18 +6,13 @@ import Footer from './components/Footer';
 import Cursor from './components/Cursor';
 import Home from './pages/Home';
 
-const Platform = lazy(() => import('./pages/Platform'));
-const Solutions = lazy(() => import('./pages/Solutions'));
-const Industries = lazy(() => import('./pages/Industries'));
-const Contact = lazy(() => import('./pages/Contact'));
+const Services = lazy(() => import('./pages/Services'));
+const Projects = lazy(() => import('./pages/Projects'));
 const About = lazy(() => import('./pages/About'));
 const Careers = lazy(() => import('./pages/Careers'));
 const Blog = lazy(() => import('./pages/Blog'));
 const BlogPost = lazy(() => import('./pages/BlogPost'));
-const CaseStudies = lazy(() => import('./pages/CaseStudies'));
-const Docs = lazy(() => import('./pages/Docs'));
-const Privacy = lazy(() => import('./pages/Privacy'));
-const Terms = lazy(() => import('./pages/Terms'));
+const Contact = lazy(() => import('./pages/Contact'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 /** Scroll to top on navigation, or to the #hash target once the page transition has settled. */
@@ -48,18 +43,13 @@ export default function App() {
         <AnimatePresence mode="wait" initial={false}>
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<Home />} />
-            <Route path="/platform" element={<Platform />} />
-            <Route path="/solutions" element={<Solutions />} />
-            <Route path="/industries" element={<Industries />} />
-            <Route path="/contact" element={<Contact />} />
             <Route path="/about" element={<About />} />
-            <Route path="/careers" element={<Careers />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/projects" element={<Projects />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
-            <Route path="/case-studies" element={<CaseStudies />} />
-            <Route path="/docs" element={<Docs />} />
-            <Route path="/privacy" element={<Privacy />} />
-            <Route path="/terms" element={<Terms />} />
+            <Route path="/careers" element={<Careers />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </AnimatePresence>

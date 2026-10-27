@@ -5,8 +5,8 @@ import NetworkGraph from '../components/NetworkGraph';
 import { blurIn, ease } from '../animations/fade';
 
 const lines: { text: string; accent?: boolean }[][] = [
-  [{ text: 'Marketing campaigns,' }],
-  [{ text: 'running on' }, { text: 'autopilot.', accent: true }],
+  [{ text: 'Software built to' }],
+  [{ text: 'outlast' }, { text: 'the launch.', accent: true }],
 ];
 
 export default function Hero() {
@@ -23,7 +23,7 @@ export default function Hero() {
       <motion.div style={{ y, opacity }} className="wrap relative">
         <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease }} className="inline-flex items-center gap-2 rounded-full border border-line bg-white/[0.03] px-4 py-1.5 text-xs tracking-[0.18em] text-mute">
           <span className="h-1.5 w-1.5 rounded-full bg-mint shadow-[0_0_10px_#5CFFB1]" />
-          THE AUTONOMOUS MARKETING PLATFORM
+          ENGINEERING-LED SOFTWARE COMPANY
         </motion.p>
 
         <h1 id="hero-title" className="display mt-8 max-w-6xl text-[clamp(3.25rem,10.5vw,10rem)] leading-[0.93]">
@@ -41,15 +41,15 @@ export default function Hero() {
         </h1>
 
         <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 0.8, ease }} className="mt-8 max-w-xl text-lg leading-relaxed text-mute md:text-xl">
-          Deploy intelligent AI agents that plan campaigns, create content, optimize spend, and turn scattered marketing into measurable growth.
+          We design, build, and run software for ambitious teams, from the first prototype to platforms used by millions.
         </motion.p>
 
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.85, duration: 0.8, ease }} className="mt-10 flex flex-col gap-3 sm:flex-row">
           <Button to="/contact" size="lg">
-            Book a Demo
+            Request a Proposal
           </Button>
-          <Button to="/platform" variant="ghost" size="lg">
-            Explore Platform
+          <Button to="/projects" variant="ghost" size="lg">
+            See Our Work
           </Button>
         </motion.div>
       </motion.div>

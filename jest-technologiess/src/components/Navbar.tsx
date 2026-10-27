@@ -7,11 +7,16 @@ import Button from './Button';
 import { ease } from '../animations/fade';
 
 export const navLinks = [
-  { label: 'Solutions', to: '/solutions' },
-  { label: 'Platform', to: '/platform' },
-  { label: 'Industries', to: '/industries' },
-  { label: 'Resources', to: '/blog' },
+  { label: 'Home', to: '/' },
+  { label: 'About', to: '/about' },
+  { label: 'Services', to: '/services' },
+  { label: 'Projects', to: '/projects' },
+  { label: 'Insights', to: '/blog' },
+  { label: 'Careers', to: '/careers' },
+  { label: 'Contact', to: '/contact' },
 ];
+
+const isActive = (pathname: string, to: string) => (to === '/' ? pathname === '/' : pathname.startsWith(to));
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -45,15 +50,15 @@ export default function Navbar() {
         scrolled || open ? 'border-line bg-ink/80 backdrop-blur-xl' : 'border-transparent bg-transparent'
       }`}
     >
-      <div className="wrap flex h-16 items-center justify-between md:h-[72px]">
+      <div className="wrap flex h-16 items-center justify-between lg:h-[76px]">
         <Logo />
 
-        <nav aria-label="Primary" className="hidden items-center gap-9 md:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-7 lg:flex">
           {navLinks.map((l) => (
             <Link
               key={l.label}
               to={l.to}
-              aria-current={pathname === l.to.split('#')[0] ? 'page' : undefined}
+              aria-current={isActive(pathname, l.to) ? 'page' : undefined}
               className="link-underline text-sm text-mute transition-colors duration-300 hover:text-bone aria-[current=page]:text-bone"
             >
               {l.label}
@@ -61,16 +66,13 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden items-center gap-5 md:flex">
-          <Link to="/contact" className="link-underline text-sm text-mute transition-colors hover:text-bone">
-            Log in
-          </Link>
-          <Button to="/contact">Get Started</Button>
+        <div className="hidden lg:block">
+          <Button to="/contact">Request a Proposal</Button>
         </div>
 
         <button
           type="button"
-          className="grid h-11 w-11 place-items-center rounded-full border border-line text-bone md:hidden"
+          className="grid h-11 w-11 place-items-center rounded-full border border-line text-bone lg:hidden"
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
           aria-controls="mobile-menu"
@@ -85,7 +87,7 @@ export default function Navbar() {
           <motion.nav
             id="mobile-menu"
             aria-label="Mobile"
-            className="fixed inset-x-0 top-16 z-40 h-[calc(100dvh-4rem)] overflow-y-auto bg-ink px-5 pb-10 pt-6 md:hidden"
+            className="fixed inset-x-0 top-16 z-40 h-[calc(100dvh-4rem)] overflow-y-auto bg-ink px-5 pb-10 pt-4 lg:hidden"
             initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
@@ -93,19 +95,16 @@ export default function Navbar() {
           >
             <ul className="flex flex-col">
               {navLinks.map((l, i) => (
-                <motion.li key={l.label} initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.06 * i + 0.05, duration: 0.35, ease }}>
-                  <Link to={l.to} className="display flex min-h-[64px] items-center border-b border-line text-3xl">
+                <motion.li key={l.label} initial={{ opacity: 0, x: -16 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.05 * i + 0.05, duration: 0.35, ease }}>
+                  <Link to={l.to} className="display flex min-h-[58px] items-center border-b border-line text-2xl">
                     {l.label}
                   </Link>
                 </motion.li>
               ))}
             </ul>
-            <div className="mt-8 flex flex-col gap-3">
+            <div className="mt-8">
               <Button to="/contact" size="lg" className="w-full">
-                Get Started
-              </Button>
-              <Button to="/contact" variant="ghost" size="lg" arrow={false} className="w-full">
-                Log in
+                Request a Proposal
               </Button>
             </div>
           </motion.nav>

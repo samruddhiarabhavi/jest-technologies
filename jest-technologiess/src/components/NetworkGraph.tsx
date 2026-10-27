@@ -20,7 +20,7 @@ const COLOR: Record<NodeKind, string> = {
 };
 
 /**
- * Marketing intelligence network. Node, edge and particle positions are written
+ * Service network. Node, edge and particle positions are written
  * straight to SVG attributes in one rAF loop (no React re-renders), and the loop
  * only runs while the graph is on screen.
  */

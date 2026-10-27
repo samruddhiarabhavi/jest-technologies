@@ -12,15 +12,15 @@ describe('Footer', () => {
   });
 
   it('renders every column heading', () => {
-    ['Product', 'Company', 'Resources', 'Legal'].forEach((h) => expect(screen.getByRole('heading', { name: h })).toBeInTheDocument());
+    ['Company', 'Services', 'Head Office'].forEach((h) => expect(screen.getByRole('heading', { name: h })).toBeInTheDocument());
   });
 
   it('gives every link a destination', () => {
     footerColumns.flatMap((c) => c.links).forEach((l) => {
       screen.getAllByRole('link', { name: l.label }).forEach((a) => expect(a).toHaveAttribute('href'));
     });
-    expect(screen.getByRole('link', { name: 'Documentation' })).toBeInTheDocument();
-    expect(screen.getAllByRole('link', { name: 'Security' })).toHaveLength(2);
+    expect(screen.getByRole('link', { name: 'Careers' })).toHaveAttribute('href', '/careers');
+    expect(screen.getByRole('link', { name: /hello@/ })).toHaveAttribute('href', expect.stringMatching(/^mailto:/));
   });
 
   it('shows the copyright line', () => {

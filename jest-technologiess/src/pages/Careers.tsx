@@ -8,7 +8,7 @@ import { perks, roles } from '../data/careers';
 export default function Careers() {
   return (
     <PageTransition>
-      <PageHeader title="Help us build the autopilot for marketing.">We are a small, remote-first team solving hard problems in AI and growth. Come do the best work of your career.</PageHeader>
+      <PageHeader eyebrow="Careers" title="Build software you are proud to maintain.">We are a team of engineers and designers who care about craft. Join us and do the best work of your career.</PageHeader>
       <section aria-labelledby="perks-title" className="wrap mt-24">
         <h2 id="perks-title" className="display text-3xl md:text-4xl">
           How we work

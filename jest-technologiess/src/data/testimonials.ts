@@ -7,7 +7,7 @@ export interface TestimonialData {
 }
 
 export const testimonials: TestimonialData[] = [
-  { id: 't1', quote: 'Jest Technologies turned weeks of campaign busywork into growth loops that run every single day.', name: 'Maya Collins', role: 'Chief Marketing Officer', company: 'Lumen Retail' },
-  { id: 't2', quote: 'Our team stopped resizing banners and started testing ideas. Launch time dropped from two weeks to three days.', name: 'Rohan Mehta', role: 'VP, Growth', company: 'Orbit Software' },
-  { id: 't3', quote: 'Every automated change is explained and reversible, which is what finally got our legal team on board.', name: 'Sofia Alvarez', role: 'Head of Brand', company: 'Kindred Health' },
+  { id: 't1', quote: 'Jest Technologies shipped our claims platform on schedule and it has barely needed a hotfix since.', name: 'Priya Nair', role: 'Chief Operating Officer', company: 'Northwind Insurance' },
+  { id: 't2', quote: 'They behave like part of our own team. Honest estimates, clear updates, and no surprises at release.', name: 'Marcus Lee', role: 'VP, Product', company: 'Helix Logistics' },
+  { id: 't3', quote: 'The new app cut our onboarding time by two thirds, and our staff actually enjoy using it.', name: 'Dr. Aisha Rahman', role: 'Director of Operations', company: 'Clinova Health' },
 ];

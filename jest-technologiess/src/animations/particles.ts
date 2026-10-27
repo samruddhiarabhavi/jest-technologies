@@ -29,7 +29,7 @@ export interface Network {
 }
 
 const KINDS: NodeKind[] = ['account', 'txn', 'payment', 'data', 'workflow'];
-const AGENT_LABELS = ['Campaign Agent', 'Content Agent', 'SEO Agent', 'Social Agent', 'Audience Agent', 'Analytics Agent'];
+const AGENT_LABELS = ['Web App', 'Mobile App', 'AI Engine', 'Cloud', 'CRM', 'API Gateway'];
 
 function rng(seed: number) {
   return () => {
@@ -41,7 +41,7 @@ function rng(seed: number) {
   };
 }
 
-/** Deterministic marketing-network layout: jittered grid, nearest-neighbour edges, travelling particles. */
+/** Deterministic service-network layout: jittered grid, nearest-neighbour edges, travelling particles. */
 export function buildNetwork(count = 18, seed = 11, width = 1200, height = 700): Network {
   const rand = rng(seed);
   const cols = 6;
@@ -55,14 +55,14 @@ export function buildNetwork(count = 18, seed = 11, width = 1200, height = 700):
     const label = isAgent
       ? AGENT_LABELS[agentCount++ % AGENT_LABELS.length]
       : kind === 'account'
-        ? `LEAD-${1000 + Math.floor(rand() * 8999)}`
+        ? `user-${1000 + Math.floor(rand() * 8999)}`
         : kind === 'txn'
-          ? `CLK ${Math.floor(rand() * 65535).toString(16).toUpperCase().padStart(4, '0')}`
+          ? `req ${Math.floor(rand() * 65535).toString(16).toUpperCase().padStart(4, '0')}`
           : kind === 'payment'
-            ? 'Ad spend'
+            ? 'Deploy'
             : kind === 'data'
-              ? 'Analytics feed'
-              : 'Campaign';
+              ? 'Dataset'
+              : 'Pipeline';
     return {
       id: i,
       kind,

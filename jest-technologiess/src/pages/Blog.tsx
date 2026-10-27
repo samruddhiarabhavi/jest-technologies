@@ -8,7 +8,7 @@ export default function Blog() {
   const [featured, ...rest] = posts;
   return (
     <PageTransition>
-      <PageHeader title="Notes on autonomous marketing.">Playbooks, experiments, and lessons from teams putting AI agents to work.</PageHeader>
+      <PageHeader eyebrow="Insights & news" title="Notes from the engineering floor.">Practical lessons on architecture, delivery, AI, and running software in production.</PageHeader>
       <section aria-label="Articles" className="wrap mt-20 pb-32">
         <Reveal>
           <Link to={`/blog/${featured.slug}`} className="group block rounded-3xl border border-line bg-card/70 p-8 transition-[border-color,background-color] duration-500 hover:border-mint/40 hover:bg-card md:p-14">

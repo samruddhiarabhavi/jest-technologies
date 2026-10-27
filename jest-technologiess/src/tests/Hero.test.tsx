@@ -12,12 +12,12 @@ describe('Hero', () => {
   });
 
   it('renders the headline and badge', () => {
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Marketing campaigns, running on autopilot.');
-    expect(screen.getByText('THE AUTONOMOUS MARKETING PLATFORM')).toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Software built to outlast the launch.');
+    expect(screen.getByText('ENGINEERING-LED SOFTWARE COMPANY')).toBeInTheDocument();
   });
 
   it('renders clickable CTA buttons that link to the right pages', () => {
-    expect(screen.getByRole('link', { name: /book a demo/i })).toHaveAttribute('href', '/contact');
-    expect(screen.getByRole('link', { name: /explore platform/i })).toHaveAttribute('href', '/platform');
+    expect(screen.getByRole('link', { name: /request a proposal/i })).toHaveAttribute('href', '/contact');
+    expect(screen.getByRole('link', { name: /see our work/i })).toHaveAttribute('href', '/projects');
   });
 });

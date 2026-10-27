@@ -8,8 +8,8 @@ describe('Testimonials', () => {
   });
 
   it('shows the first testimonial to assistive tech', () => {
-    expect(screen.getByRole('group', { name: '1 of 3' })).toHaveTextContent('Maya Collins');
-    expect(screen.getByRole('group', { name: '1 of 3' })).toHaveTextContent('Lumen Retail');
+    expect(screen.getByRole('group', { name: '1 of 3' })).toHaveTextContent('Priya Nair');
+    expect(screen.getByRole('group', { name: '1 of 3' })).toHaveTextContent('Northwind Insurance');
     expect(screen.queryByRole('group', { name: '2 of 3' })).not.toBeInTheDocument();
   });
 
