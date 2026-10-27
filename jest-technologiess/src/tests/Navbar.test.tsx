@@ -1,4 +1,4 @@
-import { render, screen, within, waitFor } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter, useLocation } from 'react-router-dom';
 import Navbar from '../components/Navbar';
@@ -23,7 +23,7 @@ describe('Navbar', () => {
     expect(screen.getByRole('link', { name: /jest technologies home/i })).toBeInTheDocument();
   });
 
-  it('shows the Request a Proposal call to action', () => {
+  it('shows the Request a proposal button', () => {
     setup();
     expect(screen.getByRole('link', { name: /request a proposal/i })).toHaveAttribute('href', '/contact');
   });
@@ -47,14 +47,13 @@ describe('Navbar', () => {
     expect(screen.getByRole('button', { name: 'Close menu' })).toHaveAttribute('aria-expanded', 'true');
     expect(screen.getByRole('navigation', { name: 'Mobile' })).toBeInTheDocument();
     await userEvent.click(screen.getByRole('button', { name: 'Close menu' }));
-    expect(screen.getByRole('button', { name: 'Open menu' })).toHaveAttribute('aria-expanded', 'false');
-    await waitFor(() => expect(screen.queryByRole('navigation', { name: 'Mobile' })).not.toBeInTheDocument());
+    expect(screen.queryByRole('navigation', { name: 'Mobile' })).not.toBeInTheDocument();
   });
 
   it('closes the mobile menu on Escape', async () => {
     setup();
     await userEvent.click(screen.getByRole('button', { name: 'Open menu' }));
     await userEvent.keyboard('{Escape}');
-    expect(screen.getByRole('button', { name: 'Open menu' })).toBeInTheDocument();
+    expect(screen.queryByRole('navigation', { name: 'Mobile' })).not.toBeInTheDocument();
   });
 });

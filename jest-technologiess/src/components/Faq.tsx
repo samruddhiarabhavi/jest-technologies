@@ -1,7 +1,5 @@
 import { useId, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
 import { Plus } from 'lucide-react';
-import { ease } from '../animations/fade';
 
 export const faqItems = [
   { q: 'How soon can a project start?', a: 'Most projects begin within two to three weeks of signing. A short discovery phase comes first so the plan is based on facts, not guesses.' },
@@ -14,31 +12,22 @@ export default function Faq() {
   const [open, setOpen] = useState<number | null>(0);
   const uid = useId();
   return (
-    <div className="divide-y divide-line border-y border-line">
+    <div className="divide-y divide-rule border-y border-rule">
       {faqItems.map((item, i) => {
         const isOpen = open === i;
         return (
           <div key={item.q}>
             <h3>
-              <button
-                type="button"
-                aria-expanded={isOpen}
-                aria-controls={`${uid}-${i}`}
-                id={`${uid}-btn-${i}`}
-                onClick={() => setOpen(isOpen ? null : i)}
-                className="flex min-h-[72px] w-full items-center justify-between gap-6 py-4 text-left text-lg transition-colors hover:text-mint md:text-xl"
-              >
+              <button type="button" aria-expanded={isOpen} aria-controls={`${uid}-${i}`} id={`${uid}-btn-${i}`} onClick={() => setOpen(isOpen ? null : i)} className="flex min-h-[64px] w-full items-center justify-between gap-6 py-4 text-left font-serif text-xl transition-colors hover:text-forest">
                 {item.q}
-                <Plus aria-hidden="true" size={20} className={`shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-45 text-mint' : ''}`} />
+                <Plus aria-hidden="true" size={20} className={`shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-45' : ''}`} />
               </button>
             </h3>
-            <AnimatePresence initial={false}>
-              {isOpen && (
-                <motion.div id={`${uid}-${i}`} role="region" aria-labelledby={`${uid}-btn-${i}`} initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.35, ease }} className="overflow-hidden">
-                  <p className="max-w-2xl pb-7 leading-relaxed text-mute">{item.a}</p>
-                </motion.div>
-              )}
-            </AnimatePresence>
+            {isOpen && (
+              <div id={`${uid}-${i}`} role="region" aria-labelledby={`${uid}-btn-${i}`}>
+                <p className="max-w-2xl pb-6 leading-relaxed text-soft">{item.a}</p>
+              </div>
+            )}
           </div>
         );
       })}

@@ -1,58 +1,25 @@
-import { Fragment, useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
 import Button from '../components/Button';
-import NetworkGraph from '../components/NetworkGraph';
-import { blurIn, ease } from '../animations/fade';
-
-const lines: { text: string; accent?: boolean }[][] = [
-  [{ text: 'Software built to' }],
-  [{ text: 'outlast' }, { text: 'the launch.', accent: true }],
-];
+import TextLink from '../components/TextLink';
+import ArtPanel from '../components/ArtPanel';
+import Reveal from '../components/Reveal';
 
 export default function Hero() {
-  const ref = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] });
-  const y = useTransform(scrollYProgress, [0, 1], [0, 140]);
-  const opacity = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
-  let w = 0;
-
   return (
-    <section ref={ref} aria-labelledby="hero-title" className="relative flex min-h-[100svh] items-center overflow-hidden pb-24 pt-32">
-      <NetworkGraph className="absolute inset-0 opacity-70 [mask-image:radial-gradient(ellipse_at_center,transparent_18%,#000_85%)]" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-ink to-transparent" />
-      <motion.div style={{ y, opacity }} className="wrap relative">
-        <motion.p initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease }} className="inline-flex items-center gap-2 rounded-full border border-line bg-white/[0.03] px-4 py-1.5 text-xs tracking-[0.18em] text-mute">
-          <span className="h-1.5 w-1.5 rounded-full bg-mint shadow-[0_0_10px_#5CFFB1]" />
-          ENGINEERING-LED SOFTWARE COMPANY
-        </motion.p>
-
-        <h1 id="hero-title" className="display mt-8 max-w-6xl text-[clamp(3.25rem,10.5vw,10rem)] leading-[0.93]">
-          {lines.map((line, li) => (
-            <span key={li} className="block">
-              {line.map((word) => (
-                <Fragment key={word.text}>
-                  <motion.span variants={blurIn} custom={0.15 + 0.14 * w++} initial="hidden" animate="show" className={`inline-block ${word.accent ? 'text-mint [text-shadow:0_0_60px_rgba(92,255,177,.35)]' : ''}`}>
-                    {word.text}
-                  </motion.span>{' '}
-                </Fragment>
-              ))}
-            </span>
-          ))}
+    <section aria-labelledby="hero-title" className="wrap grid items-center gap-12 py-14 md:py-20 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
+      <Reveal>
+        <p className="text-sm font-medium text-clay">Software company · Since 2015</p>
+        <h1 id="hero-title" className="h-serif mt-5 text-[clamp(2.5rem,5.6vw,4.75rem)] leading-[1.05]">
+          We build software that keeps working long after launch.
         </h1>
-
-        <motion.p initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 0.8, ease }} className="mt-8 max-w-xl text-lg leading-relaxed text-mute md:text-xl">
-          We design, build, and run software for ambitious teams, from the first prototype to platforms used by millions.
-        </motion.p>
-
-        <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.85, duration: 0.8, ease }} className="mt-10 flex flex-col gap-3 sm:flex-row">
-          <Button to="/contact" size="lg">
-            Request a Proposal
-          </Button>
-          <Button to="/projects" variant="ghost" size="lg">
-            See Our Work
-          </Button>
-        </motion.div>
-      </motion.div>
+        <p className="mt-6 max-w-xl text-lg leading-relaxed text-soft">Jest Technologies designs, builds, and looks after web, mobile, and AI products for companies that rely on them every day.</p>
+        <div className="mt-9 flex flex-wrap items-center gap-x-7 gap-y-4">
+          <Button to="/contact">Request a proposal</Button>
+          <TextLink to="/projects">See our work</TextLink>
+        </div>
+      </Reveal>
+      <Reveal delay={0.1}>
+        <ArtPanel kind="hero" className="aspect-[4/3] w-full rounded-md" />
+      </Reveal>
     </section>
   );
 }

@@ -1,46 +1,47 @@
 import { Link } from 'react-router-dom';
-import { ArrowUpRight } from 'lucide-react';
 import PageTransition from '../components/PageTransition';
 import PageHeader from '../components/PageHeader';
-import Reveal from '../components/Reveal';
 import { perks, roles } from '../data/careers';
 
 export default function Careers() {
   return (
     <PageTransition>
-      <PageHeader eyebrow="Careers" title="Build software you are proud to maintain.">We are a team of engineers and designers who care about craft. Join us and do the best work of your career.</PageHeader>
-      <section aria-labelledby="perks-title" className="wrap mt-24">
-        <h2 id="perks-title" className="display text-3xl md:text-4xl">
-          How we work
+      <PageHeader eyebrow="Careers" title="Come build software with us.">
+        We are engineers and designers who care about craft. If that sounds like you, we would like to hear from you.
+      </PageHeader>
+      <section aria-labelledby="perks-title" className="wrap py-14 md:py-20">
+        <h2 id="perks-title" className="h-serif text-[clamp(1.75rem,3vw,2.5rem)]">
+          Why people stay
         </h2>
-        <ul className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {perks.map((p, i) => (
-            <li key={p.title}>
-              <Reveal delay={i * 0.06} className="panel h-full p-6">
-                <h3 className="font-medium">{p.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-mute">{p.text}</p>
-              </Reveal>
-            </li>
+        <dl className="mt-10 grid gap-x-12 gap-y-8 md:grid-cols-2">
+          {perks.map((p) => (
+            <div key={p.title} className="border-t border-rule pt-4">
+              <dt className="h-serif text-xl">{p.title}</dt>
+              <dd className="mt-2 leading-relaxed text-soft">{p.text}</dd>
+            </div>
           ))}
-        </ul>
+        </dl>
       </section>
-      <section aria-labelledby="roles-title" className="wrap section">
-        <h2 id="roles-title" className="display text-3xl md:text-4xl">
-          Open roles
-        </h2>
-        <ul className="mt-10 divide-y divide-line border-y border-line">
-          {roles.map((r) => (
-            <li key={r.title}>
-              <Link to="/contact" aria-label={`Apply for ${r.title}`} className="group flex min-h-[84px] flex-col justify-center gap-1 py-4 transition-colors hover:text-mint md:flex-row md:items-center md:justify-between">
-                <span className="text-lg md:text-xl">{r.title}</span>
-                <span className="flex items-center gap-4 text-sm text-mute">
-                  {r.team} · {r.location}
-                  <ArrowUpRight size={18} aria-hidden="true" className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                </span>
-              </Link>
-            </li>
-          ))}
-        </ul>
+      <section aria-labelledby="roles-title" className="border-t border-rule bg-sand/50 py-14 md:py-20">
+        <div className="wrap">
+          <h2 id="roles-title" className="h-serif text-[clamp(1.75rem,3vw,2.5rem)]">
+            Open roles
+          </h2>
+          <ul className="mt-10 border-t border-rule">
+            {roles.map((r) => (
+              <li key={r.title} className="border-b border-rule">
+                <Link to="/contact" aria-label={`Apply for ${r.title}`} className="group grid gap-1 py-5 md:grid-cols-[1.6fr_1fr_1fr_auto] md:items-center md:gap-6">
+                  <span className="h-serif text-xl group-hover:text-forest">{r.title}</span>
+                  <span className="text-[15px] text-soft">{r.team}</span>
+                  <span className="text-[15px] text-soft">{r.location}</span>
+                  <span aria-hidden="true" className="hidden text-forest md:block">
+                    →
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
     </PageTransition>
   );

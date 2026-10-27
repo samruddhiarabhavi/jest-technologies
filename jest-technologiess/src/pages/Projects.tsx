@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 import PageTransition from '../components/PageTransition';
 import PageHeader from '../components/PageHeader';
-import ProjectCard from '../components/ProjectCard';
-import FinalCTA from '../sections/FinalCTA';
+import WorkCard from '../components/WorkCard';
+import CtaBand from '../sections/CtaBand';
 import { projectCategories, projects, type ProjectCategory } from '../data/projects';
 
 export default function Projects() {
@@ -11,32 +10,26 @@ export default function Projects() {
   const shown = filter === 'All' ? projects : projects.filter((p) => p.category === filter);
   return (
     <PageTransition>
-      <PageHeader eyebrow="Projects portfolio" title="The evidence is in production.">
-        A selection of products we have designed, built, and still run for clients across industries.
+      <PageHeader eyebrow="Projects" title="Work we are still running today.">
+        A selection of products we designed, built, and continue to look after for clients across industries.
       </PageHeader>
-      <section aria-label="Projects" className="wrap mt-16 pb-28">
-        <div role="group" aria-label="Filter projects by type" className="flex flex-wrap gap-2">
+      <section aria-label="Projects" className="wrap py-12 md:py-16">
+        <div role="group" aria-label="Filter projects by type" className="flex flex-wrap gap-x-6 gap-y-2 border-b border-rule">
           {projectCategories.map((c) => (
-            <button
-              key={c}
-              type="button"
-              aria-pressed={filter === c}
-              onClick={() => setFilter(c)}
-              className={`min-h-[44px] rounded-full border px-5 text-sm transition-colors ${filter === c ? 'border-mint bg-mint/10 text-mint' : 'border-line text-mute hover:border-white/30 hover:text-bone'}`}
-            >
+            <button key={c} type="button" aria-pressed={filter === c} onClick={() => setFilter(c)} className={`-mb-px min-h-[44px] border-b-2 text-[15px] transition-colors ${filter === c ? 'border-forest font-medium text-forest' : 'border-transparent text-soft hover:text-ink'}`}>
               {c}
             </button>
           ))}
         </div>
-        <ul className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-12 grid gap-x-8 gap-y-14 md:grid-cols-2">
           {shown.map((p) => (
-            <motion.li key={p.slug} layout initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.45 }}>
-              <ProjectCard project={p} />
-            </motion.li>
+            <li key={p.slug}>
+              <WorkCard project={p} />
+            </li>
           ))}
         </ul>
       </section>
-      <FinalCTA />
+      <CtaBand />
     </PageTransition>
   );
 }

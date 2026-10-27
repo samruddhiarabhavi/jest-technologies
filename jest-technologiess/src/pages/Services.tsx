@@ -1,47 +1,54 @@
 import { Check } from 'lucide-react';
 import PageTransition from '../components/PageTransition';
 import PageHeader from '../components/PageHeader';
-import Reveal from '../components/Reveal';
-import Process from '../sections/Process';
-import FinalCTA from '../sections/FinalCTA';
+import HowWeWork from '../sections/HowWeWork';
+import CtaBand from '../sections/CtaBand';
 import { services } from '../data/services';
 
 export default function Services() {
   return (
     <PageTransition>
-      <PageHeader eyebrow="What we do" title="Full-cycle software, from first sketch to steady state.">
-        Strategy, design, engineering, and operations under one roof, so nothing is lost in a handoff.
+      <PageHeader eyebrow="Services" title="Everything between a rough idea and a stable product.">
+        Design, engineering, and day-to-day running from one team, so you are not managing handoffs between suppliers.
       </PageHeader>
-      <div className="wrap mt-24 space-y-5 pb-28">
-        {services.map((s, i) => {
-          const Icon = s.icon;
-          return (
-            <Reveal key={s.slug}>
-              <section id={s.slug} aria-labelledby={`svc-${s.slug}`} className="grid gap-10 rounded-3xl border border-line bg-card/70 p-8 md:grid-cols-[1.2fr_1fr] md:p-12">
-                <div>
-                  <p className="flex items-center gap-3 text-sm text-mint">
-                    <Icon size={18} aria-hidden="true" /> {String(i + 1).padStart(2, '0')}
-                  </p>
-                  <h2 id={`svc-${s.slug}`} className="display mt-5 text-3xl leading-tight md:text-5xl">
-                    {s.title}
-                  </h2>
-                  <p className="mt-5 max-w-xl text-lg leading-relaxed text-mute">{s.detail}</p>
-                </div>
-                <ul className="space-y-4 md:self-center">
-                  {s.points.map((p) => (
-                    <li key={p} className="flex items-start gap-3 text-[15px]">
-                      <Check size={16} className="mt-1 shrink-0 text-mint" aria-hidden="true" />
-                      {p}
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            </Reveal>
-          );
-        })}
+      <div className="wrap grid gap-10 py-14 md:py-20 lg:grid-cols-[220px_1fr] lg:gap-16">
+        <nav aria-label="Services index" className="lg:sticky lg:top-28 lg:self-start">
+          <ul className="flex gap-x-5 gap-y-2 overflow-x-auto pb-2 lg:flex-col lg:overflow-visible lg:border-l lg:border-rule lg:pb-0">
+            {services.map((s) => (
+              <li key={s.slug} className="shrink-0">
+                <a href={`#${s.slug}`} className="block py-1 text-[15px] text-soft hover:text-forest lg:-ml-px lg:border-l lg:border-transparent lg:pl-4 lg:hover:border-forest">
+                  {s.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <div>
+          {services.map((s, i) => (
+            <section key={s.slug} id={s.slug} aria-labelledby={`svc-${s.slug}`} className={`grid gap-6 py-12 md:grid-cols-[1.3fr_1fr] md:gap-12 ${i ? 'border-t border-rule' : 'pt-0'}`}>
+              <div>
+                <p className="text-sm text-clay">{String(i + 1).padStart(2, '0')}</p>
+                <h2 id={`svc-${s.slug}`} className="h-serif mt-2 text-3xl md:text-4xl">
+                  {s.title}
+                </h2>
+                <p className="mt-4 max-w-xl text-lg leading-relaxed text-soft">{s.detail}</p>
+              </div>
+              <ul className="space-y-3 md:pt-9">
+                {s.points.map((p) => (
+                  <li key={p} className="flex items-start gap-3 text-[15px]">
+                    <Check size={16} className="mt-1 shrink-0 text-forest" aria-hidden="true" />
+                    {p}
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))}
+        </div>
       </div>
-      <Process />
-      <FinalCTA />
+      <div className="border-t border-rule bg-sand/50">
+        <HowWeWork />
+      </div>
+      <CtaBand />
     </PageTransition>
   );
 }

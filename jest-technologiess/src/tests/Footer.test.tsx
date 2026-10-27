@@ -16,10 +16,7 @@ describe('Footer', () => {
   });
 
   it('gives every link a destination', () => {
-    footerColumns.flatMap((c) => c.links).forEach((l) => {
-      screen.getAllByRole('link', { name: l.label }).forEach((a) => expect(a).toHaveAttribute('href'));
-    });
-    expect(screen.getByRole('link', { name: 'Careers' })).toHaveAttribute('href', '/careers');
+    footerColumns.flatMap((c) => c.links).forEach((l) => expect(screen.getByRole('link', { name: l.label })).toHaveAttribute('href', l.to));
     expect(screen.getByRole('link', { name: /hello@/ })).toHaveAttribute('href', expect.stringMatching(/^mailto:/));
   });
 

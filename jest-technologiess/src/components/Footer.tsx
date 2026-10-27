@@ -9,19 +9,19 @@ export const footerColumns = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-line bg-coal">
-      <div className="wrap grid gap-14 py-20 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
+    <footer className="bg-sand">
+      <div className="wrap grid gap-12 py-16 lg:grid-cols-[1.3fr_1fr_1fr_1.2fr]">
         <div className="max-w-xs">
           <Logo />
-          <p className="mt-5 text-sm leading-relaxed text-mute">An engineering-led software company building web, mobile, AI, and cloud products for ambitious teams.</p>
+          <p className="mt-4 text-[15px] leading-relaxed text-soft">A software company building web, mobile, and AI products, and looking after them once they are live.</p>
         </div>
         {footerColumns.map((col) => (
           <nav key={col.title} aria-label={col.title}>
-            <h2 className="text-sm font-medium text-bone">{col.title}</h2>
-            <ul className="mt-5 space-y-3">
+            <h2 className="font-serif text-lg">{col.title}</h2>
+            <ul className="mt-4 space-y-2.5">
               {col.links.map((l) => (
                 <li key={l.label}>
-                  <Link to={l.to} className="link-underline text-sm text-mute transition-colors hover:text-bone">
+                  <Link to={l.to} className="text-[15px] text-soft underline-offset-4 hover:text-ink hover:underline">
                     {l.label}
                   </Link>
                 </li>
@@ -30,29 +30,29 @@ export default function Footer() {
           </nav>
         ))}
         <div>
-          <h2 className="text-sm font-medium text-bone">Head Office</h2>
-          <address className="mt-5 space-y-3 text-sm not-italic leading-relaxed text-mute">
+          <h2 className="font-serif text-lg">Head Office</h2>
+          <address className="mt-4 space-y-3 text-[15px] not-italic leading-relaxed text-soft">
             <p>
               {contact.address[0]}
               <br />
               {contact.address[1]}
             </p>
             <p>
-              <a href={`tel:${contact.phone.replace(/\s/g, '')}`} className="link-underline hover:text-bone">
+              <a href={`tel:${contact.phone.replace(/\s/g, '')}`} className="underline-offset-4 hover:text-ink hover:underline">
                 {contact.phone}
               </a>
               <br />
-              <a href={`mailto:${contact.email}`} className="link-underline hover:text-bone">
+              <a href={`mailto:${contact.email}`} className="underline-offset-4 hover:text-ink hover:underline">
                 {contact.email}
               </a>
             </p>
           </address>
         </div>
       </div>
-      <div className="border-t border-line">
-        <div className="wrap flex flex-col gap-2 py-6 text-xs text-mute sm:flex-row sm:justify-between">
+      <div className="border-t border-rule">
+        <div className="wrap flex flex-col gap-1 py-5 text-sm text-soft sm:flex-row sm:justify-between">
           <p>© 2026 Jest Technologies. All rights reserved.</p>
-          <p>Remote-first · Global delivery</p>
+          <p>{contact.hours}</p>
         </div>
       </div>
     </footer>

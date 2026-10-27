@@ -13,10 +13,10 @@ export const aboutStats = [
 ];
 
 export const values = [
-  { title: 'Integrity in Code', text: 'We estimate honestly, report openly, and never trade next year’s stability for this quarter’s deadline.' },
-  { title: 'Engineering First', text: 'Every commitment is tested by engineers before it reaches a client. Our leaders still read pull requests.' },
-  { title: 'Craft at Scale', text: 'From a ten-screen prototype to a platform with millions of users, we hold the same bar for quality.' },
-  { title: 'People Before Deadlines', text: 'Sustainable pace, honest scope, and calm releases produce better software than heroics ever do.' },
+  { title: 'Honest estimates', text: 'We tell you what something will really take, including the parts that are hard. Surprises are cheaper to hear about early.' },
+  { title: 'Engineers in the room', text: 'The people who will build your product are part of the conversation from the first call, not introduced after the contract is signed.' },
+  { title: 'Quality at every size', text: 'A ten-screen prototype and a platform with millions of users get the same care: reviewed code, tested releases, and clear documentation.' },
+  { title: 'A pace people can sustain', text: 'Calm releases and realistic scope make for better software, and for a team that is still happy to work together next year.' },
 ];
 
 export const milestones = [

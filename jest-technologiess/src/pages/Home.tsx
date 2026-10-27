@@ -1,24 +1,24 @@
 import PageTransition from '../components/PageTransition';
 import Hero from '../sections/Hero';
-import SocialProof from '../sections/SocialProof';
+import Clients from '../sections/Clients';
+import ServicesList from '../sections/ServicesList';
+import FeaturedWork from '../sections/FeaturedWork';
+import HowWeWork from '../sections/HowWeWork';
 import StatsBand from '../sections/StatsBand';
-import ServicesPreview from '../sections/ServicesPreview';
-import FeaturedProjects from '../sections/FeaturedProjects';
-import Process from '../sections/Process';
-import Testimonials from '../sections/Testimonials';
-import FinalCTA from '../sections/FinalCTA';
+import ClientNotes from '../sections/ClientNotes';
+import CtaBand from '../sections/CtaBand';
 
 export default function Home() {
   return (
     <PageTransition>
       <Hero />
-      <SocialProof />
+      <Clients />
+      <ServicesList />
+      <FeaturedWork />
+      <HowWeWork />
       <StatsBand />
-      <ServicesPreview />
-      <FeaturedProjects />
-      <Process />
-      <Testimonials />
-      <FinalCTA />
+      <ClientNotes />
+      <CtaBand />
     </PageTransition>
   );
 }

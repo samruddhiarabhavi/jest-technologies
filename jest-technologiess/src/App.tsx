@@ -3,19 +3,18 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import { AnimatePresence, MotionConfig } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import Cursor from './components/Cursor';
 import Home from './pages/Home';
 
+const About = lazy(() => import('./pages/About'));
 const Services = lazy(() => import('./pages/Services'));
 const Projects = lazy(() => import('./pages/Projects'));
-const About = lazy(() => import('./pages/About'));
-const Careers = lazy(() => import('./pages/Careers'));
 const Blog = lazy(() => import('./pages/Blog'));
 const BlogPost = lazy(() => import('./pages/BlogPost'));
+const Careers = lazy(() => import('./pages/Careers'));
 const Contact = lazy(() => import('./pages/Contact'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
-/** Scroll to top on navigation, or to the #hash target once the page transition has settled. */
+/** Scroll to top on navigation, or to the #hash target once the page has settled. */
 function ScrollManager() {
   const { pathname, hash } = useLocation();
   useEffect(() => {
@@ -23,7 +22,7 @@ function ScrollManager() {
       window.scrollTo(0, 0);
       return;
     }
-    const id = window.setTimeout(() => document.getElementById(hash.slice(1))?.scrollIntoView(), 500);
+    const id = window.setTimeout(() => document.getElementById(hash.slice(1))?.scrollIntoView(), 300);
     return () => window.clearTimeout(id);
   }, [pathname, hash]);
   return null;
@@ -33,11 +32,10 @@ export default function App() {
   const location = useLocation();
   return (
     <MotionConfig reducedMotion="user">
-      <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[200] focus:rounded-full focus:bg-mint focus:px-4 focus:py-2 focus:text-ink">
+      <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-forest focus:px-4 focus:py-2 focus:text-paper">
         Skip to content
       </a>
       <ScrollManager />
-      <Cursor />
       <Navbar />
       <Suspense fallback={<div className="min-h-screen" />}>
         <AnimatePresence mode="wait" initial={false}>

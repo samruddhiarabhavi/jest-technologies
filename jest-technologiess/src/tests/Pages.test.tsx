@@ -10,6 +10,7 @@ import Blog from '../pages/Blog';
 import BlogPost from '../pages/BlogPost';
 import Contact from '../pages/Contact';
 import NotFound from '../pages/NotFound';
+import Home from '../pages/Home';
 import { posts } from '../data/posts';
 import { roles } from '../data/careers';
 import { projects } from '../data/projects';
@@ -27,11 +28,12 @@ const at = (ui: ReactElement, path = '/') =>
 
 describe('Pages', () => {
   it.each([
+    ['Home', <Home />, /keeps working long after launch/i],
     ['About', <About />, /eleven years/i],
-    ['Services', <Services />, /full-cycle software/i],
-    ['Projects', <Projects />, /evidence is in production/i],
-    ['Careers', <Careers />, /software you are proud to maintain/i],
-    ['Blog', <Blog />, /notes from the engineering floor/i],
+    ['Services', <Services />, /between a rough idea/i],
+    ['Projects', <Projects />, /still running today/i],
+    ['Careers', <Careers />, /build software with us/i],
+    ['Blog', <Blog />, /notes from our engineers/i],
     ['Contact', <Contact />, /request a proposal/i],
     ['Not found', <NotFound />, /page not found/i],
   ])('%s renders its heading', (_n, ui, heading) => {
@@ -41,23 +43,23 @@ describe('Pages', () => {
 });
 
 describe('About', () => {
-  it('has the story, stats, values, milestones, and leadership sections', () => {
+  it('has the story, values, milestones, and people', () => {
     at(<About />);
-    ['OUR STORY', 'OUR VALUES', 'MILESTONES', 'LEADERSHIP'].forEach((t) => expect(screen.getByText(t)).toBeInTheDocument());
+    ['Our story', 'What we care about', 'How we got here', 'Who you will talk to'].forEach((t) => expect(screen.getByRole('heading', { name: t })).toBeInTheDocument());
     expect(screen.getAllByText('150+').length).toBeGreaterThan(0);
-    expect(screen.getAllByText('99.9%').length).toBeGreaterThan(0);
-    expect(screen.getByRole('heading', { name: 'Integrity in Code' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Honest estimates' })).toBeInTheDocument();
     expect(screen.getByText('2015')).toBeInTheDocument();
     expect(screen.getByRole('heading', { name: 'Aarav Shah' })).toBeInTheDocument();
   });
 });
 
 describe('Services', () => {
-  it('lists every service with an anchor id', () => {
+  it('lists every service with an anchor id and index link', () => {
     at(<Services />);
     services.forEach((s) => {
       expect(screen.getByRole('heading', { name: s.title })).toBeInTheDocument();
       expect(document.getElementById(s.slug)).toBeInTheDocument();
+      expect(screen.getByRole('link', { name: s.title })).toHaveAttribute('href', `#${s.slug}`);
     });
   });
 });
@@ -75,7 +77,7 @@ describe('Projects', () => {
 });
 
 describe('Insights', () => {
-  it('links every post and renders an article by slug', () => {
+  it('links every post', () => {
     at(<Blog />);
     posts.forEach((p) => expect(screen.getByRole('link', { name: new RegExp(p.title.slice(0, 20), 'i') })).toHaveAttribute('href', `/blog/${p.slug}`));
   });
