@@ -39,3 +39,5 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+C:\Users\HP\jest-technologies\jest-technologies\client\node_modules
+C:\Users\HP\jest-technologies\jest-technologies\server\node_modules
