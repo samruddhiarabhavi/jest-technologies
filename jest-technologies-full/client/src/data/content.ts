@@ -77,9 +77,9 @@ export const caseStudy: CaseStudyData = {
   ],
   flow: ['React', 'Express API', 'ML Service', 'MongoDB'],
   metrics: [
-    { to: 40, suffix: '%', label: 'Faster processing' },
-    { to: 3, suffix: 'x', label: 'Improved workflow' },
-    { to: 99.9, suffix: '%', label: 'System availability', decimals: 1 },
+    { to: 0, suffix: '%', label: 'Faster processing' },
+    { to: 0, suffix: 'x', label: 'Improved workflow' },
+    { to: 0, suffix: '%', label: 'System availability', decimals: 1 },
   ],
 }
 

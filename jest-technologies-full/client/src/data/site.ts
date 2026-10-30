@@ -25,9 +25,9 @@ export const nav: Pair[] = [
 
 // STATS: example numbers. Replace with REAL figures before launch, or remove the section.
 export const stats: Stat[] = [
-  { value: 50, suffix: '+', label: 'Projects' },
-  { value: 15, suffix: '+', label: 'Technologies' },
-  { value: 10, suffix: '+', label: 'Industries' },
+  { value: 0, suffix: '+', label: 'Projects' },
+  { value: 0, suffix: '+', label: 'Technologies' },
+  { value: 0, suffix: '+', label: 'Industries' },
   { text: '24/7', label: 'System Thinking' },
 ]
 
