@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+  body { @apply bg-paper font-sans text-ink antialiased; }
+  h1, h2, h3 { @apply font-display tracking-tight; }
+  :focus-visible { outline: 3px solid #FF5A1F; outline-offset: 3px; }
+}
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-6xl px-5 sm:px-8; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3.5 font-semibold transition duration-300; }
+  .btn-primary { @apply bg-ink text-paper hover:bg-accent; }
+  .btn-accent { @apply bg-accent text-white hover:bg-ink; }
+  .btn-ghost { @apply text-ink ring-2 ring-inset ring-ink hover:bg-ink hover:text-paper; }
+  .eyebrow { @apply font-mono text-xs uppercase tracking-[0.18em] text-accent; }
+  .field { @apply w-full rounded-xl border border-line bg-white px-4 py-3 text-base outline-none transition focus:border-accent focus:ring-4 focus:ring-accent/15; }
+}
+.grid-bg {
+  background-image: linear-gradient(to right, rgba(20,33,61,.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(20,33,61,.06) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+@keyframes marquee { to { transform: translateX(-50%); } }
+.marquee { animation: marquee 34s linear infinite; }
+@keyframes flow { to { stroke-dashoffset: -24; } }
+.flow { stroke-dasharray: 6 6; animation: flow 1.2s linear infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .marquee, .flow { animation: none; }
+  html { scroll-behavior: auto; }
+}
